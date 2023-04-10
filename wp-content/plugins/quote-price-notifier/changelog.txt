@@ -1,0 +1,5 @@
+*** Quote and Price Notifier ***
+
+2021-07-21 - version 1.0.0
+* Initial release
+* Added changelog

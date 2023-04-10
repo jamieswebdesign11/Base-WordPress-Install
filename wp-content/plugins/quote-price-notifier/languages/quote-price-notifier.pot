@@ -1,0 +1,610 @@
+# Copyright (C) 2021 ARTIO s.r.o.
+# This file is distributed under the same license as the WooCommerce Quote & Price Notifier plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Quote & Price Notifier 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/quote-price-notifier\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-01-28T16:22:05+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: quote-price-notifier\n"
+
+#. Plugin Name of the plugin
+msgid "WooCommerce Quote & Price Notifier"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "http://artio.cz"
+msgstr ""
+
+#. Description of the plugin
+msgid "Get your customers updated on your prices!"
+msgstr ""
+
+#. Author of the plugin
+msgid "ARTIO s.r.o."
+msgstr ""
+
+#. translators: %1$s: Required PHP version; %2$s: Current PHP version
+#: quote-price-notifier.php:160
+msgid "Quote & Price Notifier requires PHP version at least %1$s but there is only %2$s installed!"
+msgstr ""
+
+#. translators: %1$s: Required WordPress version; %2$s: Current WordPress version
+#: quote-price-notifier.php:178
+msgid "Quote & Price Notifier requires WordPress version at least %1$s but there is only %2$s installed!"
+msgstr ""
+
+#. translators: %1$s: Required WooCommerce version; %2$s: Current WooCommerce version
+#: quote-price-notifier.php:197
+msgid "Quote & Price Notifier requires WooCommerce version at least %1$s but there is only %2$s installed!"
+msgstr ""
+
+#: src/Admin/Controller/AdminTableController.php:45
+msgid "Action not supported."
+msgstr ""
+
+#: src/Admin/Controller/AdminTableController.php:48
+msgid "Action not implemented."
+msgstr ""
+
+#. translators: %d: Price Watch ID
+#: src/Admin/Controller/PriceWatchAdminController.php:54
+msgid "Could not process Price Watch (ID: %d)"
+msgstr ""
+
+#. translators: %d: Processed price watches count
+#: src/Admin/Controller/PriceWatchAdminController.php:63
+msgid "%d Price Watch processed successfully"
+msgid_plural "%d Price Watches processed successfully"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Admin/Controller/PriceWatchAdminController.php:68
+msgid "No Price Watch processed"
+msgstr ""
+
+#. translators: %d: Deleted price watches count
+#: src/Admin/Controller/PriceWatchAdminController.php:107
+msgid "%d Price Watch deleted successfully"
+msgid_plural "%d Price Watches deleted successfully"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Admin/Controller/PriceWatchAdminController.php:112
+msgid "No Price Watch deleted"
+msgstr ""
+
+#. translators: %d: Quote request ID
+#: src/Admin/Controller/QuoteAdminController.php:54
+msgid "Could not resolve Quote Request (ID: %d)"
+msgstr ""
+
+#. translators: %d: Processed quote requests count
+#: src/Admin/Controller/QuoteAdminController.php:63
+msgid "%d Quote Request processed successfully"
+msgid_plural "%d Quote Requests processed successfully"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Admin/Controller/QuoteAdminController.php:68
+msgid "No Quote Request processed"
+msgstr ""
+
+#. translators: %d: Processed quote requests count
+#: src/Admin/Controller/QuoteAdminController.php:91
+msgid "%d Quote Request deleted successfully"
+msgid_plural "%d Quote Requests deleted successfully"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Admin/Controller/QuoteAdminController.php:96
+msgid "No Quote Request deleted"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:29
+msgid "No Price Watches found."
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:36
+#: src/Admin/ListTable/QuoteListTable.php:36
+msgid "Date"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:37
+#: src/Admin/ListTable/QuoteListTable.php:37
+msgid "Product"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:38
+#: src/Admin/ListTable/QuoteListTable.php:38
+msgid "Product SKU"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:39
+#: src/Admin/ListTable/QuoteListTable.php:39
+msgid "Product ID"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:40
+#: src/Admin/ListTable/QuoteListTable.php:41
+msgid "Customer E-mail"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:41
+#: src/Admin/ListTable/QuoteListTable.php:42
+msgid "Customer"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:42
+#: src/Admin/ListTable/QuoteListTable.php:43
+msgid "Customer ID"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:43
+#: src/Admin/ListTable/QuoteListTable.php:44
+msgid "Status"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:77
+#: src/Admin/ListTable/QuoteListTable.php:79
+msgid "All"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:115
+#: src/Admin/ListTable/PriceWatchListTable.php:158
+msgid "Activate"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:116
+#: src/Admin/ListTable/PriceWatchListTable.php:148
+msgid "Deactivate"
+msgstr ""
+
+#: src/Admin/ListTable/PriceWatchListTable.php:117
+#: src/Admin/ListTable/PriceWatchListTable.php:168
+#: src/Admin/ListTable/QuoteListTable.php:118
+#: src/Admin/ListTable/QuoteListTable.php:159
+msgid "Delete"
+msgstr ""
+
+#. translators: %d: Table record ID
+#: src/Admin/ListTable/PriceWatchListTable.php:138
+#: src/Admin/ListTable/QuoteListTable.php:139
+msgid "ID: %d"
+msgstr ""
+
+#: src/Admin/ListTable/QuoteListTable.php:29
+msgid "No Quote Requests found."
+msgstr ""
+
+#: src/Admin/ListTable/QuoteListTable.php:40
+#: templates/single-product-request-quote.php:42
+msgid "Quantity"
+msgstr ""
+
+#: src/Admin/ListTable/QuoteListTable.php:117
+#: src/Admin/ListTable/QuoteListTable.php:149
+msgid "Mark resolved"
+msgstr ""
+
+#: src/Admin/Menu/AdminMenu.php:48
+#: src/Admin/Settings/SettingsView.php:44
+msgid "Quote Requests"
+msgstr ""
+
+#: src/Admin/Menu/AdminMenu.php:51
+#: src/Admin/Settings/SettingsView.php:67
+msgid "Price Watches"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:22
+msgid "Quote & Price Notifier"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:49
+#: src/Admin/Settings/SettingsView.php:72
+msgid "Enabled"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:50
+msgid "Enable Quote Requests"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:56
+#: src/Admin/Settings/SettingsView.php:79
+msgid "Use reCaptcha"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:57
+#: src/Admin/Settings/SettingsView.php:80
+msgid "Use invisible reCaptcha to validate user requests"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:73
+msgid "Enable Price Watches"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:86
+msgid "Unsubscribe page"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:97
+msgid "reCaptcha"
+msgstr ""
+
+#. translators: %s: Link to Google reCaptcha settings
+#: src/Admin/Settings/SettingsView.php:100
+msgid "If you want to use Invisible reCaptcha, please register your website at %s and choose reCaptcha v2 - Invisile reCaptcha as type.<br/>After registering, you can find your reCaptcha keys on Settings page."
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:107
+msgid "reCaptcha site key"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:112
+msgid "reCaptcha secret key"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:121
+msgid "Emails"
+msgstr ""
+
+#. translators: %s: Link to emails configuration
+#: src/Admin/Settings/SettingsView.php:124
+msgid "In order to configure individual Quote & Price Notifier emails, switch to the %s tab."
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:131
+msgid "Max emails per minute"
+msgstr ""
+
+#: src/Admin/Settings/SettingsView.php:132
+msgid "Maximum number of notification emails sent to customers per minute in order to avoid getting blacklisted by SPAM filters."
+msgstr ""
+
+#: src/Captcha/Recaptcha.php:87
+msgid "There is a problem with reCaptcha. Please try again later or contact website administrator."
+msgstr ""
+
+#: src/Db/Model/Model.php:250
+msgid "Could not update data in database."
+msgstr ""
+
+#: src/Db/Model/Model.php:282
+msgid "Could not save data to database."
+msgstr ""
+
+#: src/Db/Model/PriceWatch.php:45
+msgid "There is already an active price watch registered on this product for your e-mail."
+msgstr ""
+
+#: src/Db/Model/Quote.php:49
+msgid "There is already the same quote request pending for your e-mail."
+msgstr ""
+
+#. translators: %s: SQL query
+#: src/Db/Schema.php:137
+msgid "Could not run query: %s"
+msgstr ""
+
+#: src/Db/Schema.php:145
+msgid "Could not store new database version."
+msgstr ""
+
+#: src/Db/Transaction.php:24
+msgid "Transaction is already open."
+msgstr ""
+
+#: src/Db/Transaction.php:27
+msgid "Could not start transaction."
+msgstr ""
+
+#: src/Db/Transaction.php:40
+#: src/Db/Transaction.php:56
+msgid "There is no open transaction."
+msgstr ""
+
+#: src/Db/Transaction.php:43
+msgid "Could not commit transaction."
+msgstr ""
+
+#: src/Db/Transaction.php:59
+msgid "Could not rollback transaction."
+msgstr ""
+
+#: src/Email/NewPriceWatchAdminMail.php:26
+msgid "New product price watch"
+msgstr ""
+
+#: src/Email/NewPriceWatchAdminMail.php:27
+msgid "Sent whenever a customer subscribes for a product price watching."
+msgstr ""
+
+#: src/Email/NewPriceWatchAdminMail.php:74
+msgid "[{site_title}]: New price watch for {product}"
+msgstr ""
+
+#: src/Email/NewPriceWatchAdminMail.php:79
+msgid "New Price Watch"
+msgstr ""
+
+#: src/Email/NewQuoteRequestAdminEmail.php:26
+msgid "New product quote request"
+msgstr ""
+
+#: src/Email/NewQuoteRequestAdminEmail.php:27
+msgid "Sent whenever a customer requests new quote for a product."
+msgstr ""
+
+#: src/Email/NewQuoteRequestAdminEmail.php:75
+msgid "[{site_title}]: New quote request for {product}"
+msgstr ""
+
+#: src/Email/NewQuoteRequestAdminEmail.php:80
+msgid "New Quote Request"
+msgstr ""
+
+#: src/Email/PriceWatchNotificationMail.php:33
+msgid "Product price changed notification"
+msgstr ""
+
+#: src/Email/PriceWatchNotificationMail.php:34
+msgid "Sent to all customers subscribed to product price watching when the product's price changes."
+msgstr ""
+
+#: src/Email/PriceWatchNotificationMail.php:117
+msgid "[{site_title}]: Price changed for {product}"
+msgstr ""
+
+#: src/Email/PriceWatchNotificationMail.php:122
+msgid "Product Price Changed"
+msgstr ""
+
+#: src/Enum/PriceWatchStatus.php:27
+msgid "Active"
+msgstr ""
+
+#: src/Enum/PriceWatchStatus.php:28
+msgid "Inactive"
+msgstr ""
+
+#: src/Enum/QuoteStatus.php:27
+msgid "Pending"
+msgstr ""
+
+#: src/Enum/QuoteStatus.php:28
+msgid "Resolved"
+msgstr ""
+
+#. translators: %s: Human readable time difference
+#: src/Html/DateHtml.php:73
+msgid "%s ago"
+msgstr ""
+
+#: src/Html/Scripts.php:59
+msgid "Request Quote"
+msgstr ""
+
+#: src/Html/Scripts.php:60
+msgid "Watch Price"
+msgstr ""
+
+#: src/Html/Scripts.php:61
+msgid "Please enter required data"
+msgstr ""
+
+#: src/Html/Scripts.php:62
+msgid "Could not send data to server. Please try again later."
+msgstr ""
+
+#: src/Html/Scripts.php:63
+msgid "OK"
+msgstr ""
+
+#. translators: %s: Error message
+#: src/Plugin.php:92
+msgid "Quote & Price Notifier could not update database: %s"
+msgstr ""
+
+#: src/Privacy/PersonalDataEraser.php:23
+#: src/Privacy/PersonalDataExporter.php:25
+#: src/Privacy/PersonalDataExporter.php:57
+msgid "Product Quote Requests"
+msgstr ""
+
+#: src/Privacy/PersonalDataEraser.php:27
+#: src/Privacy/PersonalDataExporter.php:29
+#: src/Privacy/PersonalDataExporter.php:101
+msgid "Product Price Watches"
+msgstr ""
+
+#. translators: %d: Number of quote requests erased
+#: src/Privacy/PersonalDataEraser.php:51
+msgid "Product quote requests erased: %d."
+msgstr ""
+
+#. translators: %d: Number of price watches erased
+#: src/Privacy/PersonalDataEraser.php:80
+msgid "Product price watches erased: %d."
+msgstr ""
+
+#: src/Privacy/PersonalDataExporter.php:60
+msgid "Quote Request ID"
+msgstr ""
+
+#: src/Privacy/PersonalDataExporter.php:63
+#: src/Privacy/PersonalDataExporter.php:107
+msgid "Customer Name"
+msgstr ""
+
+#: src/Privacy/PersonalDataExporter.php:66
+#: src/Privacy/PersonalDataExporter.php:110
+msgid "Customer Email"
+msgstr ""
+
+#: src/Privacy/PersonalDataExporter.php:104
+msgid "Price Watch ID"
+msgstr ""
+
+#: src/Site/Controller/PriceWatchController.php:30
+#: src/Site/Controller/QuoteRequestController.php:32
+msgid "Please enter correct data."
+msgstr ""
+
+#: src/Site/Controller/PriceWatchController.php:37
+#: src/Site/Controller/QuoteRequestController.php:39
+msgid "Invalid reCaptcha, please try again."
+msgstr ""
+
+#: src/Site/Controller/PriceWatchController.php:58
+msgid "Could not save new price watch. Please try again later."
+msgstr ""
+
+#: src/Site/Controller/PriceWatchController.php:64
+msgid "You have been successfully subscribed to product price watching. You will be notified anytime its price changes."
+msgstr ""
+
+#: src/Site/Controller/QuoteRequestController.php:61
+msgid "Could not save new quote request. Please try again later."
+msgstr ""
+
+#: src/Site/Controller/QuoteRequestController.php:67
+msgid "Your quote request has been received and we will contact you as soon as possible."
+msgstr ""
+
+#: src/Site/UnsubscribePage.php:65
+msgid "Unsubscribe Price Watch page, do not delete"
+msgstr ""
+
+#: src/Site/UnsubscribePage.php:140
+msgid "Unsubscribe Price Watch"
+msgstr ""
+
+#: src/Site/UnsubscribePage.php:141
+msgid "unsubscribe-price-watch"
+msgstr ""
+
+#: src/Site/UnsubscribePage.php:167
+msgid "No e-mail address specified."
+msgstr ""
+
+#: src/Site/UnsubscribePage.php:170
+msgid "Hash value doesn't match, please check that the page link is correct."
+msgstr ""
+
+#: src/Site/UnsubscribePage.php:176
+msgid "Specified product doesn't exist."
+msgstr ""
+
+#: src/Site/UnsubscribePage.php:182
+msgid "An error has occured while unsubscribing your e-mail address. Please, try again later."
+msgstr ""
+
+#: templates/emails/new-price-watch-admin.php:20
+#: templates/emails/new-quote-request-admin.php:20
+#: templates/emails/plain/new-price-watch-admin.php:19
+#: templates/emails/plain/new-quote-request-admin.php:19
+msgid "Dear admin,"
+msgstr ""
+
+#. translators: %s: Product name
+#: templates/emails/new-price-watch-admin.php:26
+#: templates/emails/plain/new-price-watch-admin.php:23
+msgid "Please notify me when the price of %s changes."
+msgstr ""
+
+#. translators: %1$s: Customer name; %2$s: Customer email
+#: templates/emails/new-price-watch-admin.php:36
+#: templates/emails/new-quote-request-admin.php:42
+#: templates/emails/plain/new-price-watch-admin.php:29
+#: templates/emails/plain/new-quote-request-admin.php:35
+msgid ""
+"Best regards,\n"
+"%1$s\n"
+"%2$s"
+msgstr ""
+
+#. translators: %1$d: Requested quantity; %2$s: Requested product name
+#: templates/emails/new-quote-request-admin.php:26
+#: templates/emails/plain/new-quote-request-admin.php:23
+msgid "Please send me a quote for %1$d piece of %2$s."
+msgid_plural "Please send me a quote for %1$d pieces of %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: Customer name
+#: templates/emails/plain/price-watch-notification.php:26
+#: templates/emails/price-watch-notification.php:30
+msgid "Dear %s,"
+msgstr ""
+
+#. translators: %1$s: Product name; %2$s: Product SKU; %3$s: Old price; %4$s: New price
+#: templates/emails/plain/price-watch-notification.php:32
+#: templates/emails/price-watch-notification.php:40
+msgid "We're informing you that the product price for %1$s (%2$s) has changed from %3$s to %4$s."
+msgstr ""
+
+#: templates/emails/plain/price-watch-notification.php:39
+#: templates/emails/price-watch-notification.php:51
+msgid "You have received this e-mail because you wanted to be notified about price changes for this product."
+msgstr ""
+
+#. translators: %s: Unsubscribe product link
+#: templates/emails/plain/price-watch-notification.php:44
+#: templates/emails/price-watch-notification.php:56
+msgid "If you don't want to receive notifications for this product anymore, please click here: %s"
+msgstr ""
+
+#. translators: %s: Unsubscribe all link
+#: templates/emails/plain/price-watch-notification.php:51
+#: templates/emails/price-watch-notification.php:63
+msgid "If you don't want to receive notifications for any of the products anymore, please click here: %s"
+msgstr ""
+
+#: templates/emails/price-watch-notification.php:57
+msgid "Unsubscribe from product"
+msgstr ""
+
+#: templates/emails/price-watch-notification.php:64
+msgid "Unsubscribe from all products"
+msgstr ""
+
+#: templates/single-product-request-quote.php:21
+msgid "Request quote"
+msgstr ""
+
+#: templates/single-product-request-quote.php:26
+#: templates/single-product-watch-price.php:26
+msgid "Your name"
+msgstr ""
+
+#: templates/single-product-request-quote.php:34
+#: templates/single-product-watch-price.php:34
+msgid "Your email"
+msgstr ""
+
+#: templates/single-product-request-quote.php:59
+msgid "Send request"
+msgstr ""
+
+#: templates/single-product-watch-price.php:21
+#: templates/single-product-watch-price.php:49
+msgid "Watch price"
+msgstr ""
+
+#. translators: %1$s: Customer email; %2$s: Product name
+#: templates/unsubscribe/success.php:11
+msgid "Your e-mail %1$s has been successfully unsubscribed and you won't receive further notifications about price changes for product %2$s."
+msgstr ""
+
+#. translators: %s: Customer email
+#: templates/unsubscribe/success.php:19
+msgid "Your e-mail %s has been successfully unsubscribed and you won't receive further notifications about price changes for any products."
+msgstr ""

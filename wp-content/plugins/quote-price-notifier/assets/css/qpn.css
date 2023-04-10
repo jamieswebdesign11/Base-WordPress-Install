@@ -1,0 +1,77 @@
+input[type="text"].validation-error,
+input[type="email"].validation-error,
+input[type="url"].validation-error,
+input[type="password"].validation-error,
+input[type="search"].validation-error,
+input[type="number"].validation-error,
+input[type="tel"].validation-error,
+input[type="range"].validation-error,
+input[type="date"].validation-error,
+input[type="month"].validation-error,
+input[type="week"].validation-error,
+input[type="time"].validation-error,
+input[type="datetime"].validation-error,
+input[type="datetime-local"].validation-error,
+input[type="color"].validation-error,
+textarea.validation-error {
+    border-color: red;
+}
+
+input[type="text"].validation-error:focus,
+input[type="email"].validation-error:focus,
+input[type="url"].validation-error:focus,
+input[type="password"].validation-error:focus,
+input[type="search"].validation-error:focus,
+input[type="number"].validation-error:focus,
+input[type="tel"].validation-error:focus,
+input[type="range"].validation-error:focus,
+input[type="date"].validation-error:focus,
+input[type="month"].validation-error:focus,
+input[type="week"].validation-error:focus,
+input[type="time"].validation-error:focus,
+input[type="datetime"].validation-error:focus,
+input[type="datetime-local"].validation-error:focus,
+input[type="color"].validation-error:focus,
+textarea.validation-error:focus {
+    border-color: red;
+}
+
+.qpn-button-wrapper {
+    text-align: center;
+    position: relative;
+}
+
+.qpn-button-wrapper .loader {
+    display: none;
+}
+
+.loading .qpn-button-wrapper button {
+    visibility: hidden;
+}
+
+.loading .qpn-button-wrapper .loader {
+    display: inherit;
+}
+
+#qpn_request_quote_btn, #qpn_watch_price_btn {
+    height: 69px;
+    margin-top: 20px;
+    padding: 10px 30px;
+    line-height: 43px;
+}
+div#qpn_request_quote_form p,
+div#qpn_watch_price_form p {
+    margin: 0 0 1em;
+}
+div#qpn_request_quote_form p:empty,
+div#qpn_watch_price_form p:empty {
+    margin: 0;
+}
+div#qpn_request_quote_form p.qpn-button-wrapper,
+div#qpn_watch_price_form p.qpn-button-wrapper {
+    margin: 1em 0 0;
+}
+div#qpn_request_quote_form .qpn-send,
+div#qpn_watch_price_form .qpn-send {
+    width: 100%;
+}

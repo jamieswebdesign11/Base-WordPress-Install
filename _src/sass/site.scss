@@ -1,0 +1,23 @@
+@import 'setup/reveal';
+@import 'setup/variables';
+@import 'setup/fonts';
+@import 'setup/mixins';
+@import 'setup/global';
+@import 'setup/fade';
+@import 'setup/setup';
+@import 'setup/animations';
+
+@import 'modules/color';
+@import 'modules/wysiwyg';
+@import 'modules/site-header';
+@import 'modules/site-footer';
+@import 'modules/form';
+@import 'modules/menus';
+@import 'modules/search';
+@import 'modules/buttons';
+@import 'modules/blocks';
+@import 'modules/page';
+
+@import "vendor/fancybox";
+@import "vendor/slick";
+@import "vendor/mCustomScrollbar";

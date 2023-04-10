@@ -1,0 +1,13 @@
+<wpml-config>
+    <admin-texts>
+        <key name="pgfw_coverpage_setting_save">
+            <key name="wpg_cover_page_company_name" />
+            <key name="wpg_cover_page_company_tagline" />
+            <key name="wpg_cover_page_company_address" />
+            <key name="wpg_cover_page_company_url" />
+        </key>
+        <key name="pgfw_taxonomy_fields_save_settings">
+            <key name="*" />
+        </key>
+    </admin-texts>
+</wpml-config>

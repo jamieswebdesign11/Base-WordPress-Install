@@ -1,0 +1,348 @@
+/* Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+    position: relative;
+    //overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        //cursor: pointer;
+        //cursor: hand;
+    }
+    
+    @include bp($mobile) {
+        .block__insights--slideshow & {
+            overflow: hidden;
+        }
+    }
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+    
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: -300px;
+      bottom: 0;
+      z-index: 10;
+    }
+    
+    .product-teaser__slider & {
+      cursor: url('https://dev-lococo-fine-art.pantheonsite.io/wp-content/themes/lococo/assets/images/icon-drag.png'), auto;
+      
+      &:before {
+        cursor: url('https://dev-lococo-fine-art.pantheonsite.io/wp-content/themes/lococo/assets/images/icon-drag.png'), auto;
+      }
+    }
+    
+    .product-artist-teaser__slider & {
+      display: flex !important;
+      align-items: stretch !important;
+      height: 100% !important;
+      //width: 100% !important;
+      //flex-wrap: wrap;
+    }
+    
+    .hero-slideshow__slider & {
+      height: 100vh;
+    }
+}
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    [dir="rtl"] & {
+        float: right;
+    }
+    img {
+        display: block;
+    }
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+    
+    .slick-initialized &.block__quote--inner {
+        display: flex;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+.slick-arrow {
+    width: 30px;
+    height: 30px;
+    background: $white;
+    border-radius: 50%;
+    text-indent: -3000px;
+    text-align: left;
+    position: absolute;
+    transition-duration: 0.3s;
+    top: 140px;
+    z-index: 10;
+    box-shadow: 0 0 18px rgba($black,0.2);
+    cursor: pointer;
+    
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-right: 2px solid $black;
+      border-top: 2px solid $black;
+      transform: translateY(-50%) rotate(45deg);
+      margin-left: 4px;
+      transition-duration: 0.3s;
+      position: absolute;
+      top: 50%;
+      left: 6px;
+    }
+    
+    &.slick-disabled {
+        opacity: 0;
+    }
+    
+    /*
+    .is-touch & {
+      transition-duration: 0s;
+      
+      span {
+        transition-duration: 0s;
+      }
+    }
+    */
+    
+    &.slick-disabled {
+        display: none;
+    }
+    
+    @media (hover: hover) {
+      &:hover {        
+        &:after {
+          border-color: $mediumgray;
+        }
+      }
+    }
+    
+    &.slick-next {
+      right: -30px;
+    }
+    &.slick-prev {
+       left: 30px;
+       transform: rotate(180deg);
+    }
+  
+  .product-teaser__slider & {
+    background: none;
+    box-shadow: none;
+    width: calc(50% + (calc(100vw * 0.0565) / 2));
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    height: 100%;
+    bottom: 0;
+    
+    &:after, 
+    &:before {
+      display: none;
+    }
+    
+    &.slick-next {
+      left: auto;
+      right: calc(-100vw * 0.0565);
+    }
+  }
+  
+  .hero-slideshow__navigation & {
+    top: 12px;
+    background: transparent;
+    box-shadow: none;
+    
+    &:after {
+      border-width: 1px;
+      width: 14px;
+      height: 14px;
+    }
+    
+    &.slick-next {
+      right: 0px;
+      transform: none;
+    }
+    &.slick-prev {
+       left: 0px;
+    }
+  }
+  
+  .product-artist-teaser__arrows & {
+    background: transparent none;
+    box-shadow: none;
+    top: 0;
+    transform: none;
+    border-radius: 0;
+    
+    &:after {
+      width: 15px;
+      height: 15px;
+      border-width: 1px;
+    }
+    
+    &.slick-next {
+      right: 0px;
+      transform: none;
+    }
+    &.slick-prev {
+       left: 0px;
+       transform: rotate(180deg);
+    }
+  }
+  
+  @include bp($mobile) {
+    &.slick-prev {
+      left: 0;
+      top: calc(100vw * 0.26);
+      transform: translateY(0%) translateX(0%);
+    }
+    
+    &.slick-next {
+      right: 0;
+      top: calc(100vw * 0.26);
+      transform: translateY(0%) translateX(0%);
+    }
+    
+    .hero-slideshow__navigation & {
+      top: 12px;
+      background: transparent;
+      box-shadow: none;
+      
+      &:after {
+        border-width: 1px;
+        width: 14px;
+        height: 14px;
+      }
+      
+      &.slick-next {
+        right: 0px;
+        transform: none;
+      }
+      &.slick-prev {
+        transform: rotate(180deg);
+        left: -6px;
+      }
+    }
+  }
+}
+
+.slick-dots {
+  list-style: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  margin: 0;
+  text-align: center;
+  padding: 0 24px;
+  height: 10px;
+  
+  li {
+    width: 10px;
+    height: 10px;
+    margin: 0 3px;
+    vertical-align: top;
+    display: inline-block;
+      
+    a,
+    button {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        text-indent: -2000px;
+        text-align: left;
+        overflow: hidden;
+        background: #D8D8D8;
+        transition-duration: 0.3s;
+    }
+      
+    a:hover,
+    button:hover,
+    &.slick-active button,
+    &.slick-active a {
+      background: $green;
+    }
+  }
+  
+  
+}

@@ -1,0 +1,84 @@
+@mixin bp($point, $reverse: false) {
+  @if $point == extra_wide {
+    @if $reverse {
+      @media screen and (min-width: $extra_wide + 1) { @content; }
+    } @else {
+      @media screen and (max-width: $extra_wide) { @content; }
+    }
+  }
+  @else if $point == wide {
+    @if $reverse {
+      @media screen and (min-width: $wide + 1) { @content; }
+    } @else {
+      @media screen and (max-width: $wide) { @content; }
+    }
+  }
+  @else if $point == desktop {
+    @if $reverse {
+      @media screen and (min-width: $desktop + 1) { @content; }
+    } @else {
+      @media screen and (max-width: $desktop) { @content; }
+    }
+  }
+  @else if $point == tablet {
+    @if $reverse {
+      @media screen and (min-width: $tablet + 1) { @content; }
+    } @else {
+      @media screen and (max-width: $tablet) { @content; }
+    }
+  }
+  @else if $point == mobile {
+    @if $reverse {
+      @media screen and (min-width: $mobile + 1) { @content; }
+    } @else {
+      @media screen and (max-width: $mobile) { @content; }
+    }
+  }
+  @else if type-of($point) == "number" {
+    @if unitless($point) {
+      @if $reverse {
+        @media screen and (min-width: #{$point + 1}px) { @content; }
+      } @else {
+        @media screen and (max-width: #{$point}px) { @content; }
+      }
+    }
+    @else if $reverse {
+      @media screen and (min-width: $point + 1) { @content; }
+    } @else {
+      @media screen and (max-width: $point) { @content; }
+    }
+  }
+  @else {
+    @warn "You must specify a valid breakpoint (desktop, tablet, mobile or a px value)";
+  }
+}
+
+@mixin dot($width) {
+  text-indent: -2000px;
+  width: $width;
+  height: $width;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: left;
+  text-indent: -2000px;
+  background: #000;
+  margin: 0 4px;
+  &:hover,
+  &.active {
+    background-color: #ffffff;
+  }
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+
+
+@mixin fontstuff($size,$lineheight,$letterspacing:0) {
+  font-size: #{$size}px;
+  line-height: #{($lineheight / $size)}em;
+  letter-spacing:#{$letterspacing}px;
+}

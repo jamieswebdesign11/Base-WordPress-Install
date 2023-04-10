@@ -1,0 +1,113 @@
+.reveal {
+	opacity: 0;
+	transition-duration: 0.85s;
+	transition-property: opacity;
+	transition-timing-function: ease;
+	transition-delay: 0.45s;
+	
+	&.page-headline, 
+	&.come-in {
+		opacity: 1;
+	}
+	
+	@media print {
+		opacity: 1 !important;
+	}
+}
+
+.reveal-inner-up {
+	transform: translateY(100%);
+	transition-duration: 0.85s;
+	display: block;
+	
+	.come-in & {
+		transform: translateY(0);
+	}
+	
+	@media print {
+		opacity: 1 !important;
+		transform: translateY(0);
+	}
+}
+
+.wp-block-image.size-large img, 
+.reveal-img {
+	opacity: 0;
+	transform: scale(1.1) translateY(40px);
+	transform-origin: 50% 0;
+	transition-duration: 0.85s;
+  transition-property: all;
+  transition-timing-function: ease;
+  transition-delay: 0.45s;
+  
+  &.come-in {
+    opacity: 1;
+		transform: scale(1) translateY(0);
+  }
+	
+	@media print {
+		opacity: 1 !important;
+		transform: translateY(0);
+	}
+}
+
+.reveal-group .reveal {
+	transition-duration: 0.75s;
+	transition-property: all;
+	transform: translateY(10%);
+	
+	&.come-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	&:nth-of-type(1) {
+	  transition-delay: .25s; /* So they look staggered */
+	}
+	&:nth-of-type(2) {
+	  transition-delay: .75s; /* So they look staggered */
+	}
+	&:nth-of-type(3) {
+	  transition-delay: 1.25s; /* So they look staggered */
+	}
+	&:nth-of-type(4) {
+	  transition-delay: 1.75s; /* So they look staggered */
+	}
+	
+	@media print {
+		opacity: 1 !important;
+		transform: translateY(0);
+	}
+}
+
+.reveal-delay {
+	transition-delay: .25s;
+}
+
+.reveal-delay--long {
+	transition-delay: .4s;
+}
+
+.reveal-delay--longer {
+	transition-delay: 1s;
+}
+
+.reveal--from-left {
+	transform: translateX(-20px);
+	transition: .8s;
+
+	&.come-in {
+		transform: translateX(0);
+	}
+}
+
+.reveal--up {
+	&.come-in {
+		transform: translateY(125px);
+	  	animation: come-in .8s ease forwards;
+	}
+
+	&.come-in:nth-child(even) {
+	  	animation-duration: 1.5s; /* So they look staggered */
+	}
+}

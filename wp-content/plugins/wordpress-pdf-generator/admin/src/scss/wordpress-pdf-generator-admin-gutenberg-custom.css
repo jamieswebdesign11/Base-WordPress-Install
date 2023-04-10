@@ -1,0 +1,10 @@
+.wpg-pdf-snippet-select {
+   width: 100%;
+   max-width: 100% !important;
+}
+.wpg-no-border-top-table {
+   border-top: 0 !important;
+}
+.wpg-no-border-table {
+   border: 0 !important;
+}

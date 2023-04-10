@@ -47,6 +47,19 @@ class Util
     }
 
     /**
+     * Gets the global plugin meta info
+     *
+     * @return array
+     **/
+    public static function getPluginMeta()
+    {
+        if (self::isPro()) {
+            return $GLOBALS['wpmdb_meta']['wp-migrate-db-pro'];
+        }
+        return $GLOBALS['wpmdb_meta']['wp-migrate-db'];
+    }
+
+    /**
      * Has a specific method been called in the stack trace.
      *
      * @param string     $method
@@ -602,7 +615,7 @@ class Util
      *
      * @return string
      */
-    function slash_one_direction($path)
+    public static function slash_one_direction($path)
     {
         return str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $path);
     }
@@ -612,7 +625,7 @@ class Util
      *
      * @return string
      */
-    function get_absolute_root_file_path()
+    public static function get_absolute_root_file_path()
     {
         static $absolute_path;
 
@@ -737,29 +750,39 @@ class Util
 
     /**
      * Returns an associative array of html escaped useful information about the site.
-     *
+     * @param array $state_data
      * @return array
      */
-    public function site_details()
+    public function site_details($state_data = [])
     {
         global $wpdb;
         $table_prefix = $wpdb->base_prefix;
         $uploads      = wp_upload_dir();
 
         $site_details = array(
-            'is_multisite'         => esc_html(is_multisite() ? 'true' : 'false'),
-            'site_url'             => esc_html(addslashes(site_url())),
-            'home_url'             => esc_html(addslashes(Util::home_url())),
-            'prefix'               => esc_html($table_prefix),
-            'uploads_baseurl'      => esc_html(addslashes(trailingslashit($uploads['baseurl']))),
-            'uploads'              => $this->uploads_info(),
-            'uploads_dir'          => esc_html(addslashes($this->get_short_uploads_dir())),
-            'subsites'             => $this->subsites_list(),
-            'subsites_info'        => $this->subsites_info(),
-            'is_subdomain_install' => esc_html((is_multisite() && is_subdomain_install()) ? 'true' : 'false'),
+            'is_multisite'                  => esc_html(is_multisite() ? 'true' : 'false'),
+            'site_url'                      => esc_html(addslashes(site_url())),
+            'home_url'                      => esc_html(addslashes(Util::home_url())),
+            'prefix'                        => esc_html($table_prefix),
+            'uploads_baseurl'               => esc_html(addslashes(trailingslashit($uploads['baseurl']))),
+            'uploads'                       => $this->uploads_info(),
+            'uploads_dir'                   => esc_html(addslashes($this->get_short_uploads_dir())),
+            'subsites'                      => $this->subsites_list(),
+            'subsites_info'                 => $this->subsites_info(),
+            'is_subdomain_install'          => esc_html((is_multisite() && is_subdomain_install()) ? 'true' : 'false'),
+            'high_performance_transfers'    => (bool)Settings::get_setting('high_performance_transfers'),
+            'theoreticalTransferBottleneck' => apply_filters('wpmdb_theoretical_transfer_bottleneck', 0),
+            'firewall_plugins'              => $this->get_active_firewall_plugins(),
+            'platform'                      => apply_filters('wpmdb_hosting_platform', null),
         );
 
-        $site_details = apply_filters('wpmdb_site_details', $site_details);
+        $wpe_cookie = self::get_wpe_cookie();
+
+        if ( ! empty($wpe_cookie)) {
+            $site_details['wpe_cookie'] = $wpe_cookie;
+        }
+
+        $site_details = apply_filters('wpmdb_site_details', $site_details, $state_data);
 
         return $site_details;
     }
@@ -771,7 +794,7 @@ class Util
      */
     public function get_short_uploads_dir()
     {
-        $short_path = str_replace($this->get_absolute_root_file_path(), '', $this->filesystem->get_upload_info('path'));
+        $short_path = str_replace(self::get_absolute_root_file_path(), '', $this->filesystem->get_upload_info('path'));
 
         return trailingslashit(substr(str_replace('\\', '/', $short_path), 1));
     }
@@ -812,6 +835,27 @@ class Util
         }
 
         return $bytes;
+    }
+
+    /**
+     * Get active firewall plugins
+     *
+     * @return array
+     **/
+    protected function get_active_firewall_plugins()
+    {
+        $waf_plugins = [
+            'wp-defender/wp-defender.php',
+            'wordfence/wordfence.php'
+        ];
+        $local_plugins = $this->filesystem->get_local_plugins();
+        $active_waf = [];
+        foreach($local_plugins as $key=> $plugin) {
+            if(in_array($key, $waf_plugins) && true === $plugin[0]['active']) {
+                $active_waf[$key] = $plugin;
+            }
+        }
+        return $active_waf;
     }
 
 
@@ -1216,7 +1260,7 @@ class Util
     }
 
     public static function is_regex_pattern_valid($pattern) {
-        return @preg_match($pattern, null) !== false;
+        return @preg_match($pattern, '') !== false;
     }
 
     /**
@@ -1292,5 +1336,108 @@ class Util
             'wp-migrate-db-pro-multisite-tools/wp-migrate-db-pro-multisite-tools.php',
             'wp-migrate-db-pro-theme-plugin-files/wp-migrate-db-pro-theme-plugin-files.php',
         ]);
+    }
+
+    /**
+     * Checks if a directory is empty
+     *
+     * @return bool
+     */
+    public static function is_empty_dir($dir)
+    {
+        $res = scandir($dir);
+        if ($res === false) {
+            return false;
+        }
+        //do not include directories with only '.' '..'
+        return count(array_diff($res, ['.', '..'])) === 0;
+    }
+
+    /**
+     * Checks if a request was initiated from a frontend page.
+     *
+     * @return bool
+     */
+    public static function is_frontend() {
+        return  !(defined('WP_CLI') && WP_CLI) && !self::is_doing_mdb_rest() && !self::wpmdb_is_ajax() && !is_admin();
+    }
+
+    /**
+     * Checks if a REST request is being made to a migrate endpoint.
+     *
+     * @return bool
+     */
+    public static function is_doing_mdb_rest() {
+        $rest_endpoint = 'mdb-api';
+
+        return isset( $_SERVER['REQUEST_URI'] ) && false !== strpos( $_SERVER['REQUEST_URI'], $rest_endpoint );
+    }
+
+    /**
+     * Checks if an AJAX request is being made to a migrate endpoint.
+     *
+     * @return bool
+     */
+    public static function wpmdb_is_ajax() {
+        // must be doing AJAX the WordPress way
+        if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
+            return false;
+        }
+
+        // must be one of our actions -- e.g. core plugin (wpmdb_*), media files (wpmdbmf_*)
+        if ( ! isset( $_POST['action'] ) || 0 !== strpos( $_POST['action'], 'wpmdb' ) ) {
+            return false;
+        }
+
+        // must be on blog #1 (first site) if multisite
+        if ( is_multisite() && 1 != get_current_site()->id ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Gets the directory for each stage
+     * Defaults to uploads dir if no match
+     *
+     * @param string $stage
+     * @return string
+     **/
+    public static function get_stage_base_dir($stage)
+    {
+        $wp_upload_dir = wp_upload_dir();
+        $dirs          = [
+            'media_files'     => $wp_upload_dir['basedir'],
+            'theme_files'     => WP_CONTENT_DIR . DIRECTORY_SEPARATOR . 'themes',
+            'themes'          => WP_CONTENT_DIR . DIRECTORY_SEPARATOR . 'themes',
+            'plugin_files'    => WP_PLUGIN_DIR,
+            'plugins'         => WP_PLUGIN_DIR,
+            'mu_plugin_files' => WPMU_PLUGIN_DIR,
+            'muplugins'       => WPMU_PLUGIN_DIR,
+            'other_files'     => WP_CONTENT_DIR,
+            'others'          => WP_CONTENT_DIR,
+            'core_files'      => ABSPATH ,
+            'core'            => ABSPATH
+        ];
+        $stage = in_array($stage, array_keys($dirs)) ? $stage : 'media_files';
+        return self::slash_one_direction($dirs[$stage]);
+    }
+
+    public static function get_wpe_cookie() {
+        if(method_exists('WpeCommon', 'get_wpe_auth_cookie_value')) {
+            return \WpeCommon::get_wpe_auth_cookie_value();
+        }
+
+        return null;
+    }
+
+    /**
+     * Checks if the current environment is a development environment.
+     *
+     * @return bool
+     */
+    public static function is_dev_environment() {
+        return isset($_ENV['MDB_IS_DEV']) && (bool) $_ENV['MDB_IS_DEV'];
     }
 }

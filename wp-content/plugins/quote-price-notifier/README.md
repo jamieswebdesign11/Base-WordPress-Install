@@ -1,1 +1,0 @@
-## woocommerce-extensions/quote-price-notifier

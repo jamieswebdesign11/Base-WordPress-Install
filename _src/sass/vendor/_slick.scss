@@ -78,14 +78,6 @@
       z-index: 10;
     }
     
-    .product-teaser__slider & {
-      cursor: url('https://dev-lococo-fine-art.pantheonsite.io/wp-content/themes/lococo/assets/images/icon-drag.png'), auto;
-      
-      &:before {
-        cursor: url('https://dev-lococo-fine-art.pantheonsite.io/wp-content/themes/lococo/assets/images/icon-drag.png'), auto;
-      }
-    }
-    
     .product-artist-teaser__slider & {
       display: flex !important;
       align-items: stretch !important;

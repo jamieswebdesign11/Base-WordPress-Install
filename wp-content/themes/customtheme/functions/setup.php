@@ -1,6 +1,6 @@
 <?php
-if ( ! function_exists( 'lococo_setup' ) ) :
-function lococo_setup() {
+if ( ! function_exists( 'customtheme_setup' ) ) :
+function customtheme_setup() {
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
   
@@ -26,14 +26,14 @@ function lococo_setup() {
 
   
   register_nav_menus( array(
-    'primary' => __( 'Main Navigation', 'lococo' ),
-    'tertiary' => __( 'Tertiary Navigation', 'lococo' ),
-    'footer' => __( 'Footer Navigation', 'lococo' ),
-    'footer-utility' => __( 'Footer Utility Navigation', 'lococo' ),
+    'primary' => __( 'Main Navigation', 'customtheme' ),
+    'tertiary' => __( 'Tertiary Navigation', 'customtheme' ),
+    'footer' => __( 'Footer Navigation', 'customtheme' ),
+    'footer-utility' => __( 'Footer Utility Navigation', 'customtheme' ),
 	));
 }
-endif; // lococo_setup
-add_action( 'after_setup_theme', 'lococo_setup' );
+endif; // customtheme_setup
+add_action( 'after_setup_theme', 'customtheme_setup' );
 
 
 if( function_exists('acf_add_options_page') ) {	

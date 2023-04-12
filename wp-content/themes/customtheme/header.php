@@ -5,8 +5,8 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  * @package WordPress
- * @subpackage lococo
- * @since lococo 1.0
+ * @subpackage customtheme
+ * @since customtheme 1.0
  */
 ?>
 <!DOCTYPE html>

@@ -3,8 +3,8 @@
  * Studio Eagle functions and definitions
  *
  * @package WordPress
- * @subpackage lococo
- * @since lococo 1.0
+ * @subpackage customtheme
+ * @since customtheme 1.0
  */
 
 require get_template_directory() . '/functions/setup.php';

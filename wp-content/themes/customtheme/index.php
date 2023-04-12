@@ -10,8 +10,8 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage lococo
- * @since lococo 1.0
+ * @subpackage customtheme
+ * @since customtheme 1.0
  */
 
 
